@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="doff_zonas_tree_view" model="ir.ui.view">
+    <field name="name">doff.allow.deduction.tree.view</field>
+    <field name="model">doff.origen.materia</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="zona_ids"/>
+      </tree>
+    </field>
+  </record>
+</odoo>

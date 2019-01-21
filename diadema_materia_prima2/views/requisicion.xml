@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="test_form_view" model="ir.ui.view">
+		<field name="name">test.form.view</field>
+		<field name="model">doff.requisicion</field>
+		<field name="arch" type="xml">
+			<form string="Test"> 
+				<header>
+					<button name="set_picking" type="object" attrs="{'invisible':[('state','in',('ingresado','fin'))]}" string="Ingresar" groups="diadema_materia_prima.permiso_ingreso_paca_bodega" class="oe_highlight"/>
+
+					<button name="anular_picking" type="object" groups="diadema_materia_prima.permiso_ingreso_paca_bodega" attrs="{'invisible':[('state','in',('anu','fin','borrador'))]}" string="Anular" class="oe_highlight"/>
+
+					<button name="change_state_process" type="object" groups="diadema_materia_prima.permiso_ingreso_paca" attrs="{'invisible':[('state','in',('borrador','anu','fin'))]}" string="Finalizar" class="oe_highlight"/>
+
+					<button name="change_state_borrador" type="object" groups="diadema_materia_prima.permiso_ingreso_paca" attrs="{'invisible':[('state','in',('anu','borrador','fin','ingresado'))]}" string="Volver a borrador" class="oe_highlight"/>
+
+					<field name="state" widget="statusbar"/>
+				</header>
+				<sheet>
+					<h1><field name="name" class="oe_inline"/></h1>
+					<group>
+						<group>
+							<field name="proveedor" attrs="{'readonly':[('state','in', ('ingresado','fin'))]}" required="1" options="{'no_create':True}"/>
+
+							<field name="encargado_compras" attrs="{'readonly':[('state','in', ('fin'))],'required':[('state','=', 'ingresado')]}" groups="diadema_materia_prima.permiso_ingreso_paca" options="{'no_create':True}"/>
+
+							<field name="locacion_id" invisible="1"/> 
+
+							<field name="fecha" attrs="{'readonly':[('state','in', ('ingresado','fin'))]}" required="1"/>
+
+							<field name="total_bultos"/>
+						</group>
+						<group>
+							<field name="encargado_bodega" attrs="{'readonly':[('state','in', ('ingresado','fin'))]}" required="1" groups="diadema_materia_prima.permiso_ingreso_paca_bodega" options="{'no_create':True}"/>
+
+							<field name="almacen_id" attrs="{'readonly':[('state','in', ('ingresado','fin'))]}" domain="[('usuarios_ids','in',(encargado_bodega))]" required="1" options="{'no_create':True}"/> 
+
+							<field name="total_peso"/>
+
+						</group>
+					</group>
+					<notebook>
+						<page string="Registro de pacas">
+							<field name="stock_ids" attrs="{'readonly':[('state','=', 'fin')]}">
+								<tree editable="top">
+									<field name="fecha" attrs="{'readonly':[('parent.state','=', 'ingresado')]}"/>
+									<!--<field name="product_id" domain="[('tipo_materia_id.codigo_materia', 'in', ('01','02','03'))]" attrs="{'readonly':[('parent.state','=', 'ingresado')]}" options="{'no_create':True}"/>-->
+									<field name="product_id" attrs="{'readonly':[('parent.state','=', 'ingresado')]}" options="{'no_create':True}"/>
+									<field name="name" attrs="{'readonly':[('parent.state','=', 'ingresado')]}" options="{'no_create':True}"/>
+									<field name="cantidad" attrs="{'readonly':[('parent.state','=', 'ingresado')]}"/>
+									<field name="product_uom_id" attrs="{'readonly':[('parent.state','=', 'ingresado')]}" options="{'no_create':True}"/>
+									<field name="costo" groups="diadema_materia_prima.permiso_ingreso_paca" attrs="{'readonly':[('parent.state','=', 'fin')]}"/>
+									<field name="stock_id" groups="diadema_materia_prima.permiso_ingreso_paca_bodega" domain="[('location_id', '=', parent.locacion_id)]" attrs="{'readonly':[('parent.state','=', 'ingresado')]}" options="{'no_create':True}"/>
+								</tree>
+							</field>
+						</page>
+					</notebook>
+					<p><strong>Agregar comentarios</strong></p>
+					<field name="observaciones" placeholder="Observaciones"/>
+				</sheet>
+				<div class="oe_chatter">                             
+			    	<field name="message_ids" widget="mail_thread"/>
+				</div>
+			</form>
+		</field>
+	</record>
+
+	<record id="test_tree_view" model="ir.ui.view">
+		<field name="name">Ingreso de pacas</field>
+		<field name="model">doff.requisicion</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="fecha"/>
+				<field name="proveedor"/>
+				<field name="encargado_compras"/>
+				<field name="encargado_bodega"/>
+				<field name="almacen_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="test_menu_action" model="ir.actions.act_window">
+		<field name="name">Ingresos pacas</field>
+		<field name="res_model">doff.requisicion</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem id="test_menu_category" name="Ingreso pacas" sequence="20" parent="stock.menu_stock_inventory_control" action="test_menu_action"/>	
+</odoo>

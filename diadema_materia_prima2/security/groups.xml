@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<odoo>
+	<data>
+		<record model="ir.module.category" id="categoria_materia_prima_diadema">
+  			<field name="name">Permisos Especiales Materia Prima Diadema</field> 
+  			<field name="description">Permisos Especiales Diadema</field> 
+  			<field name="sequence">4</field> 
+  		</record>
+
+  		<record id="grupo_materia_manager" model="res.groups">
+  			<field name="category_id" ref="categoria_materia_prima_diadema" /> 
+  			<field name="name">Registrar materia prima (Admin)</field> 
+  		</record>
+
+  		<record id="grupo_materia_user" model="res.groups">
+  			<field name="category_id" ref="categoria_materia_prima_diadema" /> 
+  			<field name="name">Registrar materia prima (user)</field> 
+  		</record>
+
+
+      <record model="ir.module.category" id="categoria_materia_prima_diadema_inventario">
+        <field name="name">Permisos Especiales inventario materia prima Diadema</field> 
+        <field name="description">Permisos Especiales inventario Diadema</field> 
+        <field name="sequence">5</field> 
+      </record>
+
+      <record id="grupo_inventario_materia_manager" model="res.groups">
+        <field name="category_id" ref="categoria_materia_prima_diadema_inventario" /> 
+        <field name="name">Manejo inventario materia prima (Admin)</field> 
+      </record>
+
+      <record id="grupo_inventario_materia_user" model="res.groups">
+        <field name="category_id" ref="categoria_materia_prima_diadema_inventario" /> 
+        <field name="name">Manejo inventario materia prima (user)</field> 
+      </record>
+
+
+      <record id="permiso_ingreso_paca" model="res.groups">
+        <field name="category_id" ref="categoria_materia_prima_diadema_inventario" /> 
+        <field name="name">Permisos encargado de registrar paca</field> 
+      </record>
+
+      <record id="permiso_ingreso_paca_bodega" model="res.groups">
+        <field name="category_id" ref="categoria_materia_prima_diadema_inventario" /> 
+        <field name="name">Permisos encargado de ingresar las pacas a bodega</field> 
+      </record>
+
+  	</data>
+</odoo>

@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!--form view origen-->
+  <record id="doff_origen_materia_form_view" model="ir.ui.view">
+    <field name="name">doff.origen.materia.form.view</field>
+    <field name="model">doff.origen.materia</field>
+    <field name="arch" type="xml">
+      <form string="Registro origen">
+        <sheet>
+          <group colspan="4">
+            <group cols="2">
+              <field name="name"/>
+            </group>
+            <group cols="2">
+              <field name="codigo_origen"/>
+            </group>
+          </group>
+        </sheet>
+        <notebook colspan="4">
+          <page string="Zonas">
+            <field name="zona_ids">
+              <tree>
+                <field name="name"/>
+              </tree>
+            </field>
+          </page>
+        </notebook>
+      </form>
+    </field>
+  </record>
+
+  <!--tree view origen-->
+  <record id="doff_origen_materia_tree_view" model="ir.ui.view">
+    <field name="name">doff.origen.materia.tree.view</field>
+    <field name="model">doff.origen.materia</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="codigo_origen"/>
+      </tree>
+    </field>
+  </record>
+
+  <!--action view origen-->
+  <record id="doff_origen_materia_action" model="ir.actions.act_window">
+    <field name="name">Origen</field>
+    <field name="res_model">doff.origen.materia</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!--form view materia-->
+  <record id="doff_materia_form_view" model="ir.ui.view">
+    <field name="name">doff.materia.form.view</field>
+    <field name="model">doff.tipo.materia</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group colspan="4">
+            <group cols="2">
+              <field name="name"/>
+            </group>
+            <group cols="2">
+              <field name="codigo_materia"/>
+            </group>
+          </group>
+        </sheet>
+        <notebook colspan="4">
+          <page string="Semillas">
+            <field name="semilla_ids">
+              <tree>
+                <field name="name"/>
+                <field name="codigo_seed"/>
+              </tree>
+            </field>
+          </page>
+        </notebook>
+      </form>
+    </field>
+  </record>
+  
+  <!--tree view materia-->
+  <record id="doff_materia_tree_view" model="ir.ui.view">
+    <field name="name">doff.materia.tree.view</field>
+    <field name="model">doff.tipo.materia</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="codigo_materia"/>
+      </tree> 
+    </field>
+  </record>
+
+  <!--action view materia-->
+  <record id="doff_materia_action" model="ir.actions.act_window">
+    <field name="name">Materia prima</field>
+    <field name="res_model">doff.tipo.materia</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!--form view estado-->
+  <record id="doff_estado_form_view" model="ir.ui.view">
+    <field name="name">doff.estado.form.view</field>
+    <field name="model">doff.estado</field>
+    <field name="arch" type="xml">
+      <form string="Registro estados">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+            </group>
+            <group>
+              <field name="codigo_estado"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!--tree view estado-->
+  <record id="doff_estado_tree_view" model="ir.ui.view">
+    <field name="name">doff.estado.tree.view</field>
+    <field name="model">doff.estado</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="codigo_estado"/>
+      </tree> 
+    </field>
+  </record>
+
+  <!--action view estado-->
+  <record id="doff_estado_action" model="ir.actions.act_window">
+    <field name="name">Estado</field>
+    <field name="res_model">doff.estado</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+   <!--form view grado-->
+  <record id="doff_grado_form_view" model="ir.ui.view">
+    <field name="name">doff.grado.form.view</field>
+    <field name="model">doff.grado</field>
+    <field name="arch" type="xml">
+      <form string="Registro grados">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+            </group>
+            <group>
+              <field name="codigo_gado"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!--tree view grado-->
+  <record id="doff_grado_tree_view" model="ir.ui.view">
+    <field name="name">doff.grado.tree.view</field>
+    <field name="model">doff.grado</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="codigo_gado"/>
+      </tree> 
+    </field>
+  </record>
+
+  <!--action view grado-->
+  <record id="doff_grado_action" model="ir.actions.act_window">
+    <field name="name">Grado</field>
+    <field name="res_model">doff.grado</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!--form view corte-->
+  <record id="doff_corte_form_view" model="ir.ui.view">
+    <field name="name">doff.corte.form.view</field>
+    <field name="model">doff.corte</field>
+    <field name="arch" type="xml">
+      <form string="Registro Cortes">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+            </group>
+            <group>
+              <field name="codigo_corte"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!--tree view corte-->
+  <record id="doff_corte_tree_view" model="ir.ui.view">
+    <field name="name">doff.corte.tree.view</field>
+    <field name="model">doff.corte</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="codigo_corte"/>
+      </tree> 
+    </field>
+  </record>
+
+  <!--action view corte-->
+  <record id="doff_corte_action" model="ir.actions.act_window">
+    <field name="name">Corte</field>
+    <field name="res_model">doff.corte</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!--form view size-->
+  <record id="doff_size_form_view" model="ir.ui.view">
+    <field name="name">doff.size.form.view</field>
+    <field name="model">doff.size</field>
+    <field name="arch" type="xml">
+      <form string="Registro tamaños">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+            </group>
+            <group>
+              <field name="codigo_size"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!--tree view size-->
+  <record id="doff_size_tree_view" model="ir.ui.view">
+    <field name="name">doff.size.tree.view</field>
+    <field name="model">doff.size</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="codigo_size"/>
+      </tree> 
+    </field>
+  </record>
+
+  <!--action view size-->
+  <record id="doff_size_action" model="ir.actions.act_window">
+    <field name="name">Tamaño</field>
+    <field name="res_model">doff.size</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!--form view zona-->
+  <record id="doff_zona_form_view" model="ir.ui.view">
+    <field name="name">doff.zona.form.view</field>
+    <field name="model">doff.zona.origen</field>
+    <field name="arch" type="xml">
+      <form string="Registro zonas">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+            </group>
+            <group>
+              <field name="codigo_zona"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!--tree view zona-->
+  <record id="doff_zona_tree_view" model="ir.ui.view">
+    <field name="name">doff.zona.tree.view</field>
+    <field name="model">doff.zona.origen</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="codigo_zona"/>
+      </tree> 
+    </field>
+  </record>
+
+  <!--action view zona-->
+  <record id="doff_zona_action" model="ir.actions.act_window">
+    <field name="name">Zona</field>
+    <field name="res_model">doff.zona.origen</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!--form view semilla-->
+  <record id="doff_semilla_form_view" model="ir.ui.view">
+    <field name="name">doff.semilla.form.view</field>
+    <field name="model">doff.semilla</field>
+    <field name="arch" type="xml">
+      <form string="Registro semillas">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+            </group>
+            <group>
+              <field name="codigo_seed"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!--tree view semilla-->
+  <record id="doff_semilla_tree_view" model="ir.ui.view">
+    <field name="name">doff.semilla.tree.view</field>
+    <field name="model">doff.semilla</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="codigo_seed"/>
+      </tree> 
+    </field>
+  </record>
+
+  <!--action view semilla-->
+  <record id="doff_semilla_action" model="ir.actions.act_window">
+    <field name="name">Semilla</field>
+    <field name="res_model">doff.semilla</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+
+  <menuitem id="doff_origen_materia_menu_root" name="Materia prima" sequence="1" parent="stock.menu_stock_config_settings"/>
+
+  <menuitem id="doff_origen_materia_menu_action" name="Origen" sequence="1" parent="doff_origen_materia_menu_root" action="doff_origen_materia_action"/>
+  
+  <menuitem id="doff_materia_menu_action" name="Materia" sequence="1" parent="doff_origen_materia_menu_root" action="doff_materia_action"/>
+  
+  <menuitem id="doff_grado_menu_action" name="Grado" sequence="1" parent="doff_origen_materia_menu_root" action="doff_grado_action"/>
+  
+  <menuitem id="doff_corte_menu_action" name="Corte" sequence="1" parent="doff_origen_materia_menu_root" action="doff_corte_action"/>
+  
+  <menuitem id="doff_size_menu_action" name="Tamaño" sequence="1" parent="doff_origen_materia_menu_root" action="doff_size_action"/>
+  
+  <menuitem id="doff_zona_menu_action" name="Zona" sequence="1" parent="doff_origen_materia_menu_root" action="doff_zona_action"/>
+
+  <menuitem id="doff_semilla_menu_action" name="Semilla" sequence="1" parent="doff_origen_materia_menu_root" action="doff_semilla_action"/>
+
+  <menuitem id="doff_estado_menu_action" name="Estado" sequence="1" parent="doff_origen_materia_menu_root" action="doff_estado_action"/>
+  <!--menu
+  
+  <menuitem id="off_allow_deduction_menu_category" name="Otros beneficios y deducciones" sequence="1" parent="off_allow_deduction_menu_root"/>
+  <menuitem id="off_allow_deduction_menu_action" name="beneficios y deducciones" sequence="1" parent="off_allow_deduction_menu_category" action="doff_allow_deduction_action"/>-->
+
+</odoo>

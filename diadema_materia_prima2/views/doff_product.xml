@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="materia_prima_inherit" model="ir.ui.view">
+    <field name="name">materia.prima.inherit</field>
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="product.product_normal_form_view"/>
+    <field name="arch" type="xml">
+      <notebook position="inside">
+        <page string="Materia prima" attrs="{'invisible':[('materia', '=', False)]}">
+          <group>
+            <group>
+              <field name="tipo_materia_id" attrs="{'required':[('materia', '=', True)]}" options="{'no_create':True}"/>
+              <field name="semilla_id" domain="[('tipo_materia_id','=',tipo_materia_id)]" attrs="{'required':[('materia', '=', True)]}" options="{'no_create':True}"/>
+              <field name="corte_id" attrs="{'required':[('materia', '=', True)]}" options="{'no_create':True}"/>
+              <field name="size_id" attrs="{'required':[('materia', '=', True)]}" options="{'no_create':True}"/>
+            </group>
+            <group>
+              <field name="estado_id" attrs="{'required':[('materia', '=', True)]}" options="{'no_create':True}"/>
+              <field name="grado_id" attrs="{'required':[('materia', '=', True)]}" options="{'no_create':True}"/> 
+              <field name="origen_id" attrs="{'required':[('materia', '=', True)]}" options="{'no_create':True}"/>
+              <field name="zona_id" domain="[('origen_id','=',origen_id)]" attrs="{'required':[('materia', '=', True)]}" options="{'no_create':True}"/>
+              <button name="set_code" type="object" string="Establecer código" class="oe_highlight"/>
+            </group>
+          </group>
+        </page>
+        <page string="Diadema" attrs="{'invisible':[('diadema', '=', False)]}">
+          <group>
+            <group>
+              <field name="brand_id" attrs="{'required':[('diadema', '=', True)]}" options="{'no_create':True}"/>
+              <field name="description_id" domain="[('brand_id','=',brand_id)]" attrs="{'required':[('diadema', '=', True)]}" options="{'no_create':True}"/> 
+            </group>
+            <group>
+              <field name="vitola_id" attrs="{'required':[('diadema', '=', True)]}" options="{'no_create':True}"/>
+              <button name="set_code_diadema" type="object" string="Establecer código" class="oe_highlight"/>
+            </group>
+          </group>
+        </page>
+      </notebook>
+      <div name="options" position="inside">
+        <div>
+          <field name="materia"/>
+          <label for="materia">Materia Prima</label>
+        </div>
+        <div>
+          <field name="diadema"/>
+          <label for="diadema">Diadema</label>
+        </div>
+      </div>
+      <field name="default_code" position="after">
+        <field name="code_diadema" readonly="1"/>
+      </field>
+    </field>
+  </record>
+
+</odoo>

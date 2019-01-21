@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="doff_zonas_form_view" model="ir.ui.view">
+    <field name="name">doff.zonas.form.view</field>
+    <field name="model">doff.origen.materia</field>
+    <field name="arch" type="xml">
+      <form>
+      	<sheet>
+      		<group colspan="4">
+      			<group cols="2">
+      				<field name="name"/>
+      			</group>
+      			<group cols="2">
+      				<field name="codigo_origen"/>
+      			</group>
+      		</group>
+      	</sheet>
+      	<notebook colspan="4">
+      		<page string="Zonas">
+      			<field name="zona_ids">
+      				<tree>
+      					<field name="name"/>
+      				</tree>
+      			</field>
+      		</page>
+      	</notebook>
+      </form>
+    </field>
+  </record>
+
+  
+
+</odoo>

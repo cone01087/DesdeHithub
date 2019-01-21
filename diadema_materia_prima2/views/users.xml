@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="doff_responsable_pureria_view">
+		    <field name="name">doff.responsable.pureria.view</field>
+		    <field name="model">res.users</field>
+		    <field name="inherit_id" ref="base.view_users_form"/>
+		    <field name="arch" type="xml">
+		        <notebook position="inside">
+		        	<page string="Logística">
+		        		<group>
+			        		<group>
+			        			<field name="almacenes_ids" widget="many2many_tags" options="{'no_create':True}"/>
+			        			<field name="conductor"/>
+			        		</group>
+			        		<group>
+			        		</group>
+		        		</group>
+		        	</page>
+		        </notebook>
+		    </field>
+		</record>
+	</data>
+</odoo>

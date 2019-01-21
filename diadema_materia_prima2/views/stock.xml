@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="paca_form_inherit" model="ir.ui.view">
+		<field name="name">paca.form.inherit</field>
+		<field name="model">stock.production.lot</field>
+		<field name="inherit_id" ref="stock.view_production_lot_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="/form/*" position="before">
+				<header>
+					<button name="set_state" type="object" attrs="{'invisible':[('state','=','fin')]}" string="Validar" class="oe_highlight"/>
+					<field name="state" widget="statusbar"/>
+				</header>
+			</xpath>
+			<!--<div name="button_box" position="inside">
+				<button name="set_mover_materia_prima" type="object" icon="fa-arrow-circle-right" string="Mover inventario" attrs="{'invisible':['|',('id','=', False),('mov_materia','=', True)]}" class="oe_stat_button"/>
+				<button name="set_revertir_materia_prima" type="object" icon="fa-arrow-circle-left" string="Revertir movimiento de inventario" attrs="{'invisible':['|',('mov_materia','=', False),('state','=','fin')]}" class="oe_stat_button"/>
+			</div>-->
+			<field name="name" position="attributes">
+				<attribute name="attrs">{'readonly':[('state','=', 'fin')]}</attribute>
+			</field>
+			<field name="product_id" position="before">
+				<field name="fecha"/>
+			</field>
+			<field name="product_id" position="attributes">
+				<attribute name="domain">[('tipo_materia_id.codigo_materia', 'in', ('01','02','03'))]</attribute>
+			</field>
+			<field name="product_id" position="attributes">
+				<attribute name="attrs">{'readonly':[('state','=', 'fin')]}</attribute>
+			</field>
+			<field name="product_id" position="attributes">
+				<attribute name="options">{'no_create':True}</attribute>
+			</field>
+			<field name="ref" position="attributes">
+				<attribute name="attrs">{'readonly':[('state','=', 'fin')]}</attribute>
+			</field>
+			<field name="product_qty" position="attributes">
+				<attribute name="invisible">1</attribute>
+			</field>
+			<label for="product_qty" position="attributes">
+				<attribute name="invisible">1</attribute>
+			</label>
+			<field name="product_id" position="after">
+				<label for="cantidad"/>
+				<div class="o_row">
+					<field name="cantidad" required="1" attrs="{'readonly':[('state','=', 'fin')]}"/>
+				</div>
+			</field>
+			<field name="ref" position="after">
+				<field name="costo" attrs="{'readonly':[('state','=', 'fin')]}" required="1"/>
+				<field name="costo_paca" attrs="{'readonly':[('state','=', 'fin')]}" readonly="1"/>
+				<field name="mov_materia" invisible="1"/>
+			</field>
+			<group name="main_group" position="inside">
+				<group>
+					<field name="almacen" attrs="{'readonly':[('state','=', 'fin')]}" options="{'no_create':True}"/>
+					<field name="locacion_id" invisible="1"/>
+					<field name="stock_id" attrs="{'readonly':[('state','=', 'fin')]}" required="1" domain="[('location_id', '=', locacion_id)]" options="{'no_create':True}"/>
+					<field name="partner_id" attrs="{'readonly':[('state','=', 'fin')]}" options="{'no_create':True}"/>
+				</group>
+			</group>
+		</field>
+	</record>
+
+
+	<record id="medias_hojas_form_inherit" model="ir.ui.view">
+		<field name="name">medias.hojas.form.inherit</field>
+		<field name="model">stock.quant</field>
+		<field name="inherit_id" ref="stock.view_stock_quant_tree"/>
+		<field name="arch" type="xml">
+			<field name="product_uom_id" position="after">
+				<field name="medias_hojas"/>
+			</field>
+		</field>
+	</record>
+
+
+	<record id="ubicacion_form_inherit" model="ir.ui.view">
+		<field name="name">ubicacion.form.inherit</field>
+		<field name="model">stock.location</field>
+		<field name="inherit_id" ref="stock.view_location_form"/>
+		<field name="arch" type="xml">
+			<field name="barcode" position="after">
+				<field name="max_pacas"/>
+			</field>
+		</field>
+	</record>
+
+</odoo>

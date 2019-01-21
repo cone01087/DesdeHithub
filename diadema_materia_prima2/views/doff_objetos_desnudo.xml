@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!--form view brand-->
+  <record id="doff_brand_cigars_form_view" model="ir.ui.view">
+    <field name="name">doff.brand.cigars.form.view</field>
+    <field name="model">doff.brand.cigars</field>
+    <field name="arch" type="xml">
+      <form string="Registro marca">
+        <sheet>
+          <group colspan="4">
+            <group cols="2">
+              <field name="name"/>
+            </group>
+            <group cols="2">
+              <field name="codigo_brand"/>
+            </group>
+          </group>
+        </sheet>
+        <notebook colspan="4">
+          <page string="Descripciones">
+            <field name="descripcion_ids">
+              <tree>
+                <field name="name"/>
+              </tree>
+            </field>
+          </page>
+        </notebook>
+      </form>
+    </field>
+  </record>
+
+  <!--tree view brand-->
+  <record id="doff_brand_cigars_tree_view" model="ir.ui.view">
+    <field name="name">doff.brand.cigars.tree.view</field>
+    <field name="model">doff.brand.cigars</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="codigo_brand"/>
+      </tree>
+    </field>
+  </record>
+
+  <!--action view brand-->
+  <record id="doff_brand_cigars_action" model="ir.actions.act_window">
+    <field name="name">Marca</field>
+    <field name="res_model">doff.brand.cigars</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!--form view descripcion-->
+  <record id="doff_description_desnudo_form_view" model="ir.ui.view">
+    <field name="name">doff.description.desnudo.form.view</field>
+    <field name="model">doff.description.desnudo</field>
+    <field name="arch" type="xml">
+      <form string="Registro descripción">
+        <sheet>
+          <group colspan="4">
+            <group cols="2">
+              <field name="name"/>
+            </group>
+            <group cols="2">
+              <field name="codigo_description"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  
+  <!--tree view descripcion-->
+  <record id="doff_description_desnudo_tree_view" model="ir.ui.view">
+    <field name="name">doff.description.desnudo.tree.view</field>
+    <field name="model">doff.description.desnudo</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="codigo_description"/>
+      </tree> 
+    </field>
+  </record>
+
+  <!--action view descripcion-->
+  <record id="doff_description_desnudo_action" model="ir.actions.act_window">
+    <field name="name">Descripción</field>
+    <field name="res_model">doff.description.desnudo</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!--form view size
+  <record id="doff_size_desnudo_form_view" model="ir.ui.view">
+    <field name="name">doff.size.desnudo.form.view</field>
+    <field name="model">doff.size.desnudo</field>
+    <field name="arch" type="xml">
+      <form string="Registro tamaños">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+            </group>
+            <group>
+              <field name="codigo_size"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>-->
+
+  <!--tree view size
+  <record id="doff_size_desnudo_tree_view" model="ir.ui.view">
+    <field name="name">doff.size.desnudo.tree.view</field>
+    <field name="model">doff.size.desnudo</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="codigo_size"/>
+      </tree> 
+    </field>
+  </record>-->
+
+  <!--action view size
+  <record id="doff_size_desnudo_action" model="ir.actions.act_window">
+    <field name="name">Tamaño</field>
+    <field name="res_model">doff.size.desnudo</field>
+    <field name="view_mode">tree,form</field>
+  </record>-->
+
+
+  <menuitem id="doff_cigars_desnudo_menu_root" name="Diadema" sequence="1" parent="mrp.menu_mrp_configuration"/>
+
+  <menuitem id="doff_brand_menu_action" name="Marca" sequence="1" parent="doff_cigars_desnudo_menu_root" action="doff_brand_cigars_action"/>
+  
+  <menuitem id="doff_description_menu_action" name="Descripción" sequence="1" parent="doff_cigars_desnudo_menu_root" action="doff_description_desnudo_action"/>
+  
+  <!--<menuitem id="doff_size_desnudo_menu_action" name="Tamaño" sequence="1" parent="doff_cigars_desnudo_menu_root" action="doff_size_desnudo_action"/>-->
+  
+ 
+
+</odoo>

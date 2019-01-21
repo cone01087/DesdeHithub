@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_num_requisicion_materia_prima" model="ir.sequence">
+            <field name="name"># Requisición</field>
+            <field name="code">rq_mprima</field>
+            <field name="prefix">Requisición. </field>
+            <field name="padding">4</field>
+        </record>
+    </data>
+</odoo>

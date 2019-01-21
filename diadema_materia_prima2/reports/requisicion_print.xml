@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <report
+        id="requisicion_print"
+        model="doff.requisicion"
+        string="Comprobante de recepción de Tabaco"
+        name="diadema_materia_prima.requisicion_print_view"
+        file="diadema_materia_prima.requisicion_print_view"
+        report_type="qweb-pdf" />
+</data>
+</odoo>
+
